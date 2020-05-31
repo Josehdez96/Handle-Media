@@ -1,13 +1,14 @@
 import MediaPlayer from './MediaPlayer'
 import AutoPlay from './plugins/AutoPlay'
 import AutoPause from './plugins/AutoPause'
+import Ads from './plugins/ads/index'
 
 
 const video = document.querySelector("video"); //Selecciona el unico tag video del HTML
 
 const player = new MediaPlayer({
   myVideo: video, 
-  plugins: [new AutoPlay(), new AutoPause()]
+  plugins: [new AutoPlay(), new AutoPause(), new Ads()]
 })
 
 const btnPlay: HTMLElement = document.querySelector("#play"); //Unico botón en todo nuestro HTML
