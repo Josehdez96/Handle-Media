@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Scope</title>
+</head>
+<body>
+  <a href="/ejercicios/">Go back</a>
+  <p><em>Abre la consola</em></p>
+
+  <script>
+    //Global scope     //Todas las variables globales se guardaran en ||window||
+    var message = 'Hola amigos!'; //Podemos acceder a ||message|| con ||window.message|| en la consola de Chrome
+    
+
+    //IIFE Inmediatly Invoque Function Expression === Llamar la función en la creación de si misma!
+    (function() {
+      let color = green;
+
+    })();
+
+
+    //Funciones que regresan (imprimen) funciones
+    function makeColorPrinter(color) { //Closure = Son funciones que retornan funciones creando así un tipo de encapsulamiento
+      let colorMessage = `The color is ${color}`;
+
+      return function () { 
+        console.log(colorMessage)
+      }
+    }
+
+    let greenColorPrinter = makeColorPrinter('green');
+    console.log(greenColorPrinter); //Lo que esto imprime es TODA la función que retorna makeColorPrinter()
+
+
+
+  </script>
+  
+</body>
+</html>
